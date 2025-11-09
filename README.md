@@ -1,4 +1,4 @@
-# GitShipNote
+# GitShipNote VSCODE Extension
 AI-powered changelog generator for Git repositories.
 
 GitHub Repository
