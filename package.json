@@ -4,6 +4,7 @@
   "description": "AI-powered changelog generator for Git repositories",
   "version": "0.0.1",
   "publisher": "BrianBaoHoang",
+  "icon": "images/Icon.jpg",
   "engines": {
     "vscode": "^1.85.0"
   },
