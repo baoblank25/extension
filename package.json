@@ -1,12 +1,12 @@
 {
   "name": "gitshipnote",
   "displayName": "GitShipNote",
-  "description": "AI-powered changelog generator for Git repositories",
-  "version": "0.0.1",
+  "description": "Generate beautiful changelogs from your git history using AI",
+  "version": "1.0.1",
   "publisher": "BrianBaoHoang",
   "icon": "images/Icon.jpg",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.74.0"
   },
   "repository": {
     "type": "git",
@@ -15,9 +15,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:gitshipnote.generateChangelog"
-  ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -25,7 +23,17 @@
         "command": "gitshipnote.generateChangelog",
         "title": "GitShipNote: Generate Changelog"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "GitShipNote",
+      "properties": {
+        "gitshipnote.anthropicApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Anthropic API Key (get it from console.anthropic.com)"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -35,15 +43,11 @@
     "lint": "eslint src --ext ts"
   },
   "devDependencies": {
-    "@types/node": "18.x",
-    "@types/vscode": "^1.85.0",
-    "@typescript-eslint/eslint-plugin": "^6.13.0",
-    "@typescript-eslint/parser": "^6.13.0",
-    "eslint": "^8.54.0",
-    "typescript": "^5.3.0"
+    "@types/node": "^16.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.70.1",
-    "axios": "^1.6.2"
+    "@anthropic-ai/sdk": "^0.32.1"
   }
 }
