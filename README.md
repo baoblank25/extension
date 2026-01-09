@@ -5,24 +5,33 @@
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/BrianBaoHoang.gitshipnote)](https://marketplace.visualstudio.com/items?itemName=BrianBaoHoang.gitshipnote)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/BrianBaoHoang.gitshipnote)](https://marketplace.visualstudio.com/items?itemName=BrianBaoHoang.gitshipnote)
 
-Transform your messy git logs into beautiful, human-readable changelogs with AI.
+Turn your messy git history into clean, readable changelogs. No more digging through commits trying to figure out what changed.
 
-## ✨ Features
+## What it does
 
-- 🚀 **One-click changelog generation** - No setup, no backend servers
-- 🤖 **AI-powered categorization** - Automatically sorts commits into Features, Fixes, Improvements, and Documentation
-- 📝 **Clean Markdown output** - Professional changelogs ready to share
-- 🔒 **Privacy-first** - Your API key stays on your machine, never uploaded
-- ⚡ **Fast & lightweight** - Runs directly in VS Code
+- **Generates changelogs from your commits** - Just tell it how many commits to look at and it does the rest
+- **Sorts everything automatically** - Groups commits into Features, Fixes, Improvements, and Documentation
+- **Handles big repos** - Works with up to 1000 commits at a time, with smart batching and caching
+- **Keeps your data private** - Your API key stays on your machine, nothing gets uploaded anywhere
+- **Outputs clean Markdown** - Ready to copy into your release notes or documentation
 
-## 📦 Installation
+## What's new in v1.1
 
-### From VS Code Marketplace (Recommended)
+- Increased commit limit from 100 to 1000
+- Added commit caching so re-running is faster
+- Smart pre-categorization before sending to AI (speeds things up)
+- Better error messages when something goes wrong
+- Added a "Clear Cache" command
+- Cancellable operations with progress updates
+
+## Installation
+
+### From VS Code Marketplace
 
 1. Open VS Code
 2. Press `Ctrl+Shift+X` (or `Cmd+Shift+X` on Mac)
-3. Search for **"GitShipNote"**
-4. Click **Install**
+3. Search for "GitShipNote"
+4. Click Install
 
 ### From VSIX File
 
@@ -30,60 +39,68 @@ Transform your messy git logs into beautiful, human-readable changelogs with AI.
 code --install-extension gitshipnote-1.0.0.vsix
 ```
 
-## 🚀 Usage
+## How to use it
 
-1. **Open a Git repository** in VS Code
-2. **Press** `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
-3. **Type** `GitShipNote: Generate Changelog`
-4. **Enter your Anthropic API key** (first time only)
-   - Get your free API key at: https://console.anthropic.com/
-   - The extension will securely save it in VS Code settings
-5. **Choose how many commits** to analyze (1-100)
-6. **View your changelog!** - Opens in a new Markdown file
+1. Open any Git repository in VS Code
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+3. Type `GitShipNote: Generate Changelog`
+4. Enter your Anthropic API key if this is your first time
+   - Grab one from https://console.anthropic.com/
+   - You can save it so you don't have to enter it again
+5. Pick how many commits to analyze (up to 1000)
+6. Wait a few seconds and your changelog opens in a new tab
 
-## 🔑 API Key Setup
+## Getting an API key
 
-GitShipNote uses Claude AI to generate intelligent changelogs. You'll need your own Anthropic API key:
+GitShipNote uses Claude to understand your commits and write the changelog. You'll need an Anthropic API key:
 
-1. Go to https://console.anthropic.com/
-2. Sign up for a free account
-3. Create an API key
-4. Paste it when prompted in VS Code (or add it manually in Settings → GitShipNote)
+1. Head to https://console.anthropic.com/
+2. Create an account (they have a free tier)
+3. Generate an API key
+4. Paste it when the extension asks, or add it in Settings > GitShipNote
 
-**Your API key is stored locally and never shared.**
+Your key is stored locally in VS Code settings. It never leaves your machine.
 
-## 📄 Example Output
+## Example output
 
 ```markdown
 # CHANGELOG
 
-*Last 50 commits*
+*5 features | 3 fixes | 2 improvements | 1 docs*
 
 ---
 
 ## Features
-- Added user authentication system with OAuth support
-- Implemented dark mode toggle in settings panel
-- Created new dashboard with real-time analytics
+- Added user authentication with OAuth support
+- New dashboard with real-time analytics
+- Dark mode toggle in settings
 
 ## Fixes
 - Fixed memory leak in background service
-- Resolved API timeout issues during peak hours
-- Corrected date formatting in export feature
+- Resolved API timeouts during peak hours
+- Date formatting now works correctly in exports
 
 ## Improvements
-- Optimized database queries for faster load times
-- Enhanced error messages for better debugging
-- Updated UI components for better accessibility
+- Database queries are faster now
+- Better error messages for debugging
+- Updated UI for accessibility
 
 ## Documentation
-- Added API documentation with examples
-- Updated README with installation instructions
+- Added API docs with examples
 ```
 
-## 🛠️ Development
+## Commands
 
-### Building from Source
+- `GitShipNote: Generate Changelog` - Create a changelog from your commits
+- `GitShipNote: Clear Cache` - Clear the cached commit data (useful if you've made new commits)
+
+## Settings
+
+- `gitshipnote.anthropicApiKey` - Your Anthropic API key
+- `gitshipnote.maxCommits` - Maximum commits allowed (default: 1000)
+- `gitshipnote.cacheTTL` - How long to cache commits in seconds (default: 300)
+
+## Building from source
 
 ```bash
 git clone https://github.com/baoblank25/Git_Ship_Note.git
@@ -92,24 +109,24 @@ npm install
 npm run compile
 ```
 
-### Packaging
+To package it:
 
 ```bash
 npm install -g @vscode/vsce
 vsce package
 ```
 
-## 🤝 Contributing
+## Contributing
 
-PRs and issues welcome! Visit: [baoblank25/Git_Ship_Note](https://github.com/baoblank25/Git_Ship_Note)
+Found a bug? Have an idea? PRs and issues are welcome at [baoblank25/Git_Ship_Note](https://github.com/baoblank25/Git_Ship_Note)
 
-## 📝 License
+## License
 
-MIT License - see [LICENSE](LICENSE) for details
+MIT - see [LICENSE](LICENSE)
 
-## 🔗 Links
+## Links
 
 - [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=BrianBaoHoang.gitshipnote)
-- [GitHub Repository](https://github.com/baoblank25/Git_Ship_Note)
-- [Anthropic Claude API](https://www.anthropic.com/api)
-- [Report an Issue](https://github.com/baoblank25/Git_Ship_Note/issues)
+- [GitHub](https://github.com/baoblank25/Git_Ship_Note)
+- [Anthropic API](https://www.anthropic.com/api)
+- [Report a bug](https://github.com/baoblank25/Git_Ship_Note/issues)

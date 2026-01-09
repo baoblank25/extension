@@ -22,6 +22,10 @@
       {
         "command": "gitshipnote.generateChangelog",
         "title": "GitShipNote: Generate Changelog"
+      },
+      {
+        "command": "gitshipnote.clearCache",
+        "title": "GitShipNote: Clear Cache"
       }
     ],
     "configuration": {
@@ -31,6 +35,20 @@
           "type": "string",
           "default": "",
           "description": "Your Anthropic API Key (get it from console.anthropic.com)"
+        },
+        "gitshipnote.maxCommits": {
+          "type": "number",
+          "default": 1000,
+          "minimum": 100,
+          "maximum": 5000,
+          "description": "Maximum number of commits that can be analyzed (default: 1000)"
+        },
+        "gitshipnote.cacheTTL": {
+          "type": "number",
+          "default": 300,
+          "minimum": 60,
+          "maximum": 3600,
+          "description": "Cache time-to-live in seconds (default: 300)"
         }
       }
     }
